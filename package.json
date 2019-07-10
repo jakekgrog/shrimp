@@ -1,0 +1,22 @@
+{
+    "name": "ShrimpBot",
+    "version": "1.0.0",
+    "description": "Shrimp Bot for Discord",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Jake Grogan",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.0",
+        "deepai": "^1.0.8",
+        "discord.js": "^11.5.1",
+        "lodash": "^4.17.11",
+        "mongodb": "^3.2.7",
+        "op.gg-api": "^2.0.5-alpha",
+        "pm2": "^3.5.1",
+        "request": "^2.88.0",
+        "ws": "^7.0.1"
+    }
+}

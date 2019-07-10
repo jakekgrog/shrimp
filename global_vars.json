@@ -1,0 +1,6 @@
+{
+    "prefix": "!",
+    "opggSummonerPath": "https://euw.op.gg/summoner/userName=",
+    "cryptoEndpoint": "https://min-api.cryptocompare.com/data/pricemulti?fsyms=XRP,ETH,LINK&tsyms=EUR",
+    "channelId": "596321040611803137"
+}

@@ -51,9 +51,61 @@ const get = async (user) => {
          console.log(e);
     }
 }
+const getRelease = async (release) => {
+    const client = await MongoClient.connect(url, { useNewUrlParser: true })
+        .catch(err => { console.log(err); });
+
+    if (!client) {
+        return;
+    }
+
+    try {
+        const db = client.db('mydb');
+
+        let collection = db.collection('releases');
+        var res = await collection.find().limit(1).sort({$natural: -1}).toArray();
+        
+        if (res) {
+            await logMsg('INFO', 'fetched release');
+            console.log(res)
+            return res
+        } else {
+	   console.log("Somethign went wrong")
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+const putRelease = async (release) => {
+    const client = await MongoClient.connect(url, { useNewUrlParser: true })
+        .catch(err => { console.log(err); });
+
+    if (!client) {
+        return;
+    }
+
+    try {
+        const db = client.db('mydb');
+
+        let collection = db.collection('releases');
+        var res = await collection.insertOne({name: release})
+
+        if (res) {
+            await logMsg('INFO', 'fetched release');
+            return res
+        } else {
+           console.log("Somethign went wrong")
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
 
 module.exports = {
     put,
-    get
+    get,
+    getRelease,
+    putRelease
 }
 

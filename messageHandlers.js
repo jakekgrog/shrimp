@@ -14,6 +14,7 @@ const {sooc} = require('./commands/sooc.js')
 const {rooc} = require('./commands/rooc.js')
 const {coinflip} = require('./commands/coinflip.js')
 const {deepDream, colorize} = require('./commands/deepai.js')
+const {urban} = require('./commands/urban.js')
 
 const tokenizer = (message) => {
     const tokens = _.split(message.content, ' ')
@@ -95,6 +96,10 @@ const colorizeHandler = async (message, args, client) => {
 
 }
 
+const urbanHandler = async (message, args, client) => {
+    urban(message, args)
+}
+
 const updownHandler = async (message, args, client) => {
     const endpoint = args[0]
     const response = await updown(endpoint)
@@ -130,7 +135,8 @@ const commands = {
     "!updown": updownHandler,
     "!coinflip": coinHandler,
     "!deepdream": deepDreamHandler,
-    "!colorize": colorizeHandler
+    "!colorize": colorizeHandler,
+    "!urban": urbanHandler
 }
 
 const regexr = {

@@ -10,13 +10,19 @@
     "license": "ISC",
     "dependencies": {
         "axios": "^0.19.0",
+        "bufferutil": "^4.0.1",
         "deepai": "^1.0.8",
         "discord.js": "^11.5.1",
+        "ffmpeg": "0.0.4",
+        "ffmpeg-static": "^2.5.0",
         "lodash": "^4.17.11",
         "mongodb": "^3.2.7",
         "op.gg-api": "^2.0.5-alpha",
+        "opusscript": "0.0.6",
         "pm2": "^3.5.1",
         "request": "^2.88.0",
-        "ws": "^7.0.1"
+        "ws": "^7.0.1",
+        "yt-search": "^0.4.1",
+        "ytdl-core": "^0.29.3"
     }
 }

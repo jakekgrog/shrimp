@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
+const Client = require('./client/Client.js');
 const {DISCORD_CLIENT_ID} = require('./keys.json');
-const {
-    handleMessage,
-    isCommand
-} = require('./messageHandlers')
+const {handleMessage, isCommand} = require('./messageHandlers')
 const {channelId} = require('./global_vars.json')
 const {getLatestRelease, isNewRelease} = require('./utils');
-const client = new Discord.Client();
+
+
+const client = new Client();
 
 client.once('ready', () => {
     const channels = client.channels
@@ -18,9 +18,9 @@ client.once('ready', () => {
 const sendRelease = async (channel) => {
     const latestRelease = await getLatestRelease()
     const isNew = await isNewRelease(latestRelease.version)
-    console.log(isNew)
+
     if (isNew){
-        console.log("\n" +
+        channel.send("\n" +
                          "I've been updated!" + "\n" +
                          "Now on version " + latestRelease.version + " - " + latestRelease.name + "\n" + "\n" +
                          "--- Changelog: ---" + "\n" + "\n" + 

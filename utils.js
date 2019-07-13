@@ -17,10 +17,8 @@ const getLatestRelease = async () => {
 
 const isNewRelease = async (release) => {
     const rel = await getRelease()
-    console.log(rel[0].name, release, rel[0].name === release)
     if (rel && rel.length > 0) {
         if (rel[0].name === release) {
-             console.log("IM HERE")
              return false
         }
         putRelease(release)

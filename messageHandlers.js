@@ -15,6 +15,10 @@ const {rooc} = require('./commands/rooc.js')
 const {coinflip} = require('./commands/coinflip.js')
 const {deepDream, colorize} = require('./commands/deepai.js')
 const {urban} = require('./commands/urban.js')
+const {nowplaying} = require('./commands/nowplaying.js')
+const {play} = require('./commands/play.js')
+const {skip} = require('./commands/skip.js')
+const {stop} = require('./commands/stop.js')
 
 const tokenizer = (message) => {
     const tokens = _.split(message.content, ' ')
@@ -122,6 +126,22 @@ const sentimentHandler = async (message, args, client) => {
     message.reply("\n" + "I'm " +  perc + " sure that was " + emotion)
 }
 
+const nowplayingHandler = (message, args, client) => {
+    nowplaying(message)
+}
+
+const playHandler = (message, args, client) => {
+    play(message, args)
+}
+
+const skipHandler = (message, args, client) => {
+    skip(message)
+}
+
+const stopHandler = (message, args, client) => {
+    stop(message)
+}
+
 const commands = {
     "!ping": pingHandler,
     "!lolstats": opggHandler,
@@ -136,7 +156,11 @@ const commands = {
     "!coinflip": coinHandler,
     "!deepdream": deepDreamHandler,
     "!colorize": colorizeHandler,
-    "!urban": urbanHandler
+    "!urban": urbanHandler,
+    "!nowplaying": nowplayingHandler,
+    "!play": playHandler,
+    "!skip": skipHandler,
+    "!stop": stopHandler
 }
 
 const regexr = {

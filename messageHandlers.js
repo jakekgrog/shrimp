@@ -19,6 +19,7 @@ const {nowplaying} = require('./commands/nowplaying.js')
 const {play} = require('./commands/play.js')
 const {skip} = require('./commands/skip.js')
 const {stop} = require('./commands/stop.js')
+const {about} = require('./commands/about.js')
 
 const tokenizer = (message) => {
     const tokens = _.split(message.content, ' ')
@@ -61,7 +62,7 @@ const opggHandler = (message, args, client) => {
 }
 
 const helpHandler = (message, args, client) => {
-    help(message)
+    help(message, args)
 }
 
 const cryptoHandler = (message, args, client) => {
@@ -142,6 +143,10 @@ const stopHandler = (message, args, client) => {
     stop(message)
 }
 
+const aboutHandler = (message, args, client) => {
+    about(message)
+}
+
 const commands = {
     "!ping": pingHandler,
     "!lolstats": opggHandler,
@@ -160,7 +165,8 @@ const commands = {
     "!nowplaying": nowplayingHandler,
     "!play": playHandler,
     "!skip": skipHandler,
-    "!stop": stopHandler
+    "!stop": stopHandler,
+    "!about": aboutHandler
 }
 
 const regexr = {

@@ -73,7 +73,30 @@ const playSong = (message, song) => {
         return
     }
 
-    message.channel.send(`Now playing: ${song.title}`)
+    const upNext = serverQueue.songs[1]
+
+    message.channel.send({embed: {
+        color: 3447003,
+        author: {
+            name: "Shrimp Stream",
+            icon_url: message.client.user.avatarURL
+        },
+        fields: [
+            {
+                name: "Now Playing",
+                value: `Currently playing ${song.title}`
+            },
+            {
+                name: "Up next",
+                value: `Next in the queue is ${upNext !== undefined ? upNext.title : "nothing"}`
+            }
+        ],
+        timestamp: new Date(),
+        footer: {
+            icon_url: message.client.user.avatarURL,
+            text: " Shrimp Bot"
+        }
+    }})
 
     const dispatcher = serverQueue.connection.playStream(ytdl(song.url, {filter: 'audioonly'}))
             .on('end', () => {

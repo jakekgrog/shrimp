@@ -20,6 +20,7 @@ const {play} = require('./commands/play.js')
 const {skip} = require('./commands/skip.js')
 const {stop} = require('./commands/stop.js')
 const {about} = require('./commands/about.js')
+const {ow} = require('./commands/ow.js')
 
 const tokenizer = (message) => {
     const tokens = _.split(message.content, ' ')
@@ -147,6 +148,10 @@ const aboutHandler = (message, args, client) => {
     about(message)
 }
 
+const owHandler = (message, args, client) => {
+    ow(message,args)
+}
+
 const commands = {
     "!ping": pingHandler,
     "!lolstats": opggHandler,
@@ -166,7 +171,8 @@ const commands = {
     "!play": playHandler,
     "!skip": skipHandler,
     "!stop": stopHandler,
-    "!about": aboutHandler
+    "!about": aboutHandler,
+    "!owstats": owHandler
 }
 
 const regexr = {

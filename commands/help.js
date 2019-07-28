@@ -136,6 +136,10 @@ const mapCommandToDescription = {
     "about": {
         desc: "Get statistical information about Shrimp Bot",
         usage: "!about"
+    },
+    "owstats": {
+        desc:"Get a user's overwatch rating.",
+        usage:"!owstats profilename-[battletagdigits]"
     }
 }
 
